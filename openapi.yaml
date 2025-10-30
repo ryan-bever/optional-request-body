@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info:
+  title: openapi-codegen strict server optional request body
+  version: "0.0.1"
+
+paths:
+  /things:
+    post:
+      summary: Create Thing
+      operationId: createThing
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ThingRequest"
+      responses:
+        "201":
+          description: Thing created
+
+components:
+  schemas:
+    ThingRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the thing
+          x-order: 1
